@@ -19,6 +19,15 @@ class Post(models.Model):
 
 
 # Create your models here.
+class Profesion(models.Model):
+    nombre_profesion = models.CharField(max_length=30)
+
+    def __str__(self):
+        return str(self.nombre_profesion)
+
+total_profesiones = Profesion.objects.all()
+
+
 
 class Freelancer(models.Model):
     PROFESIONES = (
@@ -30,7 +39,7 @@ class Freelancer(models.Model):
     nombre = models.CharField(max_length=30)
     apellido = models.CharField(max_length=50)
     foto_de_perfil = models.ImageField(upload_to='media/', null=True, blank=True)
-    profesion = models.CharField(max_length=30, choices=Profesion.objects.all())
+    profesion = models.CharField(max_length=30, choices=PROFESIONES)
     email = models.EmailField()
     domicilio = models.TextField( null=True, blank=True)
     telefono = models.CharField(max_length=15, null=True, blank=True)
@@ -41,11 +50,6 @@ class Freelancer(models.Model):
     def __str__(self):
         return str(self.nombre) + ' ' + str(self.apellido) 
     
-class Profesion(models.Model):
-    nombre_profesion = models.CharField(max_lenght=30)
-
-    def __str__(self):
-        return str(self.nombre_profesion)
 
 
 
