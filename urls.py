@@ -19,5 +19,5 @@ from pagweb import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('testCategorias/', views.busq_categoria, name='testCategorias'),
+    path('bus/', views.busq_categoria, name='testResultados'),
 ]
