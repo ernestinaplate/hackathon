@@ -19,6 +19,15 @@ class Post(models.Model):
 
 
 # Create your models here.
+class Profesion(models.Model):
+    nombre_profesion = models.CharField(max_length=30)
+
+    def __str__(self):
+        return str(self.nombre_profesion)
+
+total_profesiones = Profesion.objects.all()
+
+
 
 class Freelancer(models.Model):
     PROFESIONES = (
@@ -41,6 +50,7 @@ class Freelancer(models.Model):
     def __str__(self):
         return str(self.nombre) + ' ' + str(self.apellido) 
     
+
 
 
 
