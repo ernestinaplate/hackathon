@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Freelancer
 
 # Create your views here.
 
@@ -14,7 +15,7 @@ def busq_categoria(request):
     #lista_resultado = Freelancer.objects.filter(categoria=request.GET[categoria])
     
     lista_freelancers = Freelancer.objects.all()
-    contexto = {"lista_t": lista_freelancers}
+    contexto = {"lista": lista_freelancers}
     
-    return render(request, 'testBusqCategoria.html', resultados)
+    return render(request, 'testBusqCategoria.html', contexto)
 
