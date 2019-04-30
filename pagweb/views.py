@@ -20,7 +20,7 @@ def busq_categoria(request):
     #######
 
     ####### Prueba objects.all()
-    lista_freelancers = Freelancer.objects.all()
+    #lista_freelancers = Freelancer.objects.all()
     #######
     
     contexto = {"lista": lista_resultado}
