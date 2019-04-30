@@ -13,4 +13,3 @@ class FreelancerForm(forms.Form):
     exp_previa = forms.CharField(label='Experiencia previa', widget=forms.Textarea)
     descripcion = forms.CharField(label='Descripcion', widget=forms.Textarea)
     fotoportfolio = forms.FileField(label='Fotoportfolio')
-    created = forms.DateTimeField()
