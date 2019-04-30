@@ -1,6 +1,14 @@
 <html>
-    <body>Perfil
-            <h1>Nombre: {{ nombre }}</h1>
-            <h2>Apellido: {{ apellido }}</h2>
+    <body><h1>Perfil</h1>
+            <h3>Nombre: {{ individual.0.nombre }}</h3>
+            <h3>Apellido: {{ individual.0.apellido }}</h3>
+            <h3>E-mail: {{ individual.0.email }}</h3>
+            <h3>Domicilio: {{ individual.0.domicilio }}</h3>
+            <h3>Telefono: {{ individual.0.telefono }}</h3>
+            <h3>Experiencia: {{ individual.0.ex_previa }}</h3>
+            <h3>E-mail: {{ individual.0.email }}</h3>
+            <h3>Descripcion: {{ individual.0.descripcion }}</h3>
+            <h2>Fotoportfolio: <img src="/media/{{ individual.0.fotoportfolio }}"> </h2>
+           
     </body>
 </html>
