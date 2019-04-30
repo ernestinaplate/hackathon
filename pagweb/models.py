@@ -24,8 +24,12 @@ class Profesion(models.Model):
 
     def __str__(self):
         return str(self.nombre_profesion)
+    
+    class Meta:
+        verbose_name = 'Profesion'
+        verbose_name_plural = 'Profesiones'
 
-total_profesiones = Profesion.objects.all()
+
 
 
 
