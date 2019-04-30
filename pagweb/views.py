@@ -14,6 +14,7 @@ def index(request):
 
 
 def busq_categoria(request):
+    
     #lista_resultados = ("Fotografo1","Fotografo2","Fotografo3")
     #resultados = {"lista_resultados": lista_resultados}
     
@@ -43,7 +44,7 @@ def crear_freelancer(request):
     fotoportfolio = parametros_form.get('fotoportfolio')
     created = parametros_form.get('created')
 
-    profesion_nueva = Profesion.objects.get(id=int(profesion))
+    profesion_nueva = Profesion.objects.get(id=profesion)
     freelancer_nuevo = Freelancer(nombre=nombre, apellido=apellido, 
                                 foto_de_perfil=foto_de_perfil, profesion=profesion_nueva,
                                 email=email, domicilio=domicilio, telefono=telefono,
