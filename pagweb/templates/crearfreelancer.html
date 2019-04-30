@@ -1,0 +1,11 @@
+</form>
+<h4>Crear libros con forms</h4>
+<form action="crearlibro/" method="POST">
+    {% csrf_token %}
+    {{ formulario }}
+    <input type="submit" value="Submit">
+</form>
+
+
+</body>
+</html>
