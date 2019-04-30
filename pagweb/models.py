@@ -22,6 +22,8 @@ class Post(models.Model):
 # Create your models here.
 class Profesion(models.Model):
     nombre_profesion = models.CharField(max_length=30)
+    imagen_chica = models.ImageField(upload_to='media/', null=True, blank=True)
+    imagen_grande = models.ImageField(upload_to='media/', null=True, blank=True)
 
     def __str__(self):
         return str(self.nombre_profesion)

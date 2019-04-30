@@ -1,10 +1,11 @@
 <html>
+    <head>
     <body>
         <h1>Busqueda por Profesion</h1>
         <h2>Profesion: {{ lista.0.profesion }}</h2>
     {% for free in lista %}
         <img src="/media/{{ free.foto_de_perfil }}" width="193" height="130">
-        <a href="../detalle?f={{free.id}}">{{ free.nombre }} {{ free.apellido }}</a>
+        <a href="../test_detalle?f={{free.id}}">{{ free.nombre }} {{ free.apellido }}</a>
         <br>
     {% endfor %}
     </body>
