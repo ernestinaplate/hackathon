@@ -27,4 +27,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('testCat/', views.busq_categoria, name='testCat'),
+    path('test_detalle/', views.desplegar_detalle, name='test_detalle'),
 ]
