@@ -30,16 +30,10 @@ total_profesiones = Profesion.objects.all()
 
 
 class Freelancer(models.Model):
-    PROFESIONES = (
-        ('Fotografo', 'Fotografo'),
-        ('Programador', 'Programador'),
-        ('Profesor particular', 'Profesor particular'),
-    )
-
     nombre = models.CharField(max_length=30)
     apellido = models.CharField(max_length=50)
     foto_de_perfil = models.ImageField(upload_to='media/', null=True, blank=True)
-    profesion = models.CharField(max_length=30, choices=PROFESIONES)
+    profesion = models.ForeignKey('Profesion', on_delete=models.SET_NULL, null=True, blank=True)
     email = models.EmailField()
     domicilio = models.TextField( null=True, blank=True)
     telefono = models.CharField(max_length=15, null=True, blank=True)
