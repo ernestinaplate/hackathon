@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 	<body>
-			Boton para busqueda de Fotografos
-			<form method='GET' action='/testCat' >
-			 <input type="submit" value="Fotografo" name="c">
-		 </form>
-		 Enlace para busqueda de Fotografos
-		 <a href="../testCat?c=Fotografo">FOTOGRAFOS</a>
+		 Enlace para busqueda de Profesionales<br>
+		 {% for x in lista_profesiones %}
+	   <a href="../testCat?c={{x.id}}">{{x.nombre_profesion}}</a><br>
+       {% endfor%}
+		 
   </body>
 </html>
