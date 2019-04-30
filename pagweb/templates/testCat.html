@@ -3,10 +3,10 @@
         <h1>Prueba de Resultados de Busqueda por Categoria</h1>
         <h2>Profesion: {{ lista.0.profesion }}</h2>
     {% for free in lista %}
-        <p>Nombre: {{ free.nombre }} {{ free.apellido }}</p>
-        <p>Fotito: <img src="{{ free.foto_de_perfil }}"></p>
+        Nombre: {{ free.nombre }} {{ free.apellido }}
+        Fotito: <img src="{{ free.foto_de_perfil }}">
         <form method='GET' action='/detalle' >
-           <input type="submit" value="{{free.id}}" name="c">Ver detalle</input>
+           <input type="submit" value="{{free.id}}" name="f">
          </form>
     {% endfor %}
     </body>

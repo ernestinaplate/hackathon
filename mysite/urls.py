@@ -16,10 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from pagweb import views
-#from . import settings
-#from django.contrib.staticfiles.urls import static
-#from django.contrib.staticfiles.urls import staticfiles_urlpatterns
- 
+from django.conf import settings
+from django.conf.urls.static import static
+
 #urlpatterns += staticfiles_urlpatterns()
 #urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
@@ -27,5 +26,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('testCat/', views.busq_categoria, name='testCat'),
+<<<<<<< HEAD
     path('test_detalle/', views.desplegar_detalle, name='test_detalle'),
 ]
+=======
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+>>>>>>> 1d781b44797fc9ed13eec1bb81d4a13b25942c26
