@@ -63,3 +63,6 @@ def crear_freelancer(request):
 
     return render(request, 'crearfreelancer.html', {"form":form})
 
+def detalles(request):
+    url_homepage = "detalles.html"
+    return render(request, url_homepage)
