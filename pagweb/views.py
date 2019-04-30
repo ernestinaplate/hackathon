@@ -9,7 +9,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 # Create your views here.
 
 def index(request):
-    url_homepage = "index.html"
+    url_homepage = "index2.html"
     listado_prof = Profesion.objects.all()
     contexto = { "lista_profesiones":listado_prof }
     return render(request, url_homepage, contexto)
