@@ -2,10 +2,12 @@
     <body>
         <h1>Prueba de Resultados de Busqueda por Categoria</h1>
         <h2>Profesion: {{ lista.0.profesion }}</h2>
-        <p>Nombre: {{ lista.0.nombre }} {{ lista.0.apellido }}</p>
-        <p>Fotito: <img src="{{ lista.0.foto_de_perfil.url }}"></p>
-        <form method='GET' action='/testCat' >
-           <input type="submit" value="Fotografo" name="c">
+    {% for free in lista %}
+        <p>Nombre: {{ free.nombre }} {{ free.apellido }}</p>
+        <p>Fotito: <img src="{{ free.foto_de_perfil }}"></p>
+        <form method='GET' action='/detalle' >
+           <input type="submit" value="{{free.id}}" name="c">Ver detalle</input>
          </form>
+    {% endfor %}
     </body>
 </html>
