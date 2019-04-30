@@ -22,7 +22,7 @@ def busq_categoria(request):
     #lista_freelancers = Freelancer.objects.all()
     
     contexto = {"lista": lista_resultado}
-    return render(request, 'testCat.html', contexto)
+    return render(request, 'listafree.html', contexto)
 
 def desplegar_detalle(request):
     #llama a cada porfesional individualmente desplegando detalles
