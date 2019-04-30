@@ -9,7 +9,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 # Create your views here.
 
 def index(request):
-    url_homepage = "index.html"
+    url_homepage = "index2.html"
     listado_prof = Profesion.objects.all()
     contexto = { "lista_profesiones":listado_prof }
     return render(request, url_homepage, contexto)
@@ -27,7 +27,7 @@ def busq_categoria(request):
 def desplegar_detalle(request):
     #llama a cada porfesional individualmente desplegando detalles
     individuo = Freelancer.objects.filter(id=request.GET["f"])
-    contexto = {"Individual":individuo}
+    contexto = {"individual":individuo}
     return render(request, 'test_detalle.html', contexto)
 
 def crear_freelancer(request):
