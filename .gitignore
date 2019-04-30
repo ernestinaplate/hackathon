@@ -1,4 +1,5 @@
 myenvhack
 .vscode
 __pycache__
+db.sqlite3
 desktop.ini

@@ -27,7 +27,7 @@ def busq_categoria(request):
 def desplegar_detalle(request):
     #llama a cada porfesional individualmente desplegando detalles
     individuo = Freelancer.objects.filter(id=request.GET["f"])
-    contexto = {"Individual":individuo}
+    contexto = {"individual":individuo}
     return render(request, 'test_detalle.html', contexto)
 
 def crear_freelancer(request):
@@ -61,5 +61,5 @@ def crear_freelancer(request):
     else:
         form = FreelancerForm()
 
-    return render(request, 'crearfreelancer.html', {"formu":form})
+    return render(request, 'crearfreelancer.html', {"form":form})
 
