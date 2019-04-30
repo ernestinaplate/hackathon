@@ -22,5 +22,5 @@ def busq_categoria(request):
     
     contexto = {"lista": lista_resultado}
     
-    return render(request, 'testBusqCategoria.html', contexto)
+    return render(request, 'testCat.html', contexto)
 

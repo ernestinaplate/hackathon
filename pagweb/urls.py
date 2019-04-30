@@ -20,6 +20,6 @@ from pagweb import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index)
-    path('bus/', views.busq_categoria, name='testResultados'),
+    #path('bus/', views.busq_categoria, name='testResultados'),
 ]
 
