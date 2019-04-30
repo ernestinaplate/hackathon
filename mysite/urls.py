@@ -26,4 +26,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('testCat/', views.busq_categoria, name='testCat'),
+    path('crearfree/', views.crear_freelancer),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
