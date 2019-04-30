@@ -22,13 +22,17 @@ def busq_categoria(request):
     
     ####### Prueba GET y objects.filter()
     lista_resultado = Freelancer.objects.filter(profesion=request.GET["c"])
-
     ####### Prueba objects.all()
     #lista_freelancers = Freelancer.objects.all()
-    
     contexto = {"lista": lista_resultado}
+    
     return render(request, 'testCat.html', contexto)
 
+def desplegar_detalle(request):
+    #llama a cada porfesional individualmente desplegando detalles
+    individuo = Freelancer.objects.filter(id=request.GET["f"])
+    contexto = {"Individual":individuo}
+    return render(request, 'test_detalle.html', contexto)
 def crear_freelancer(request):
     if request.method == 'POST':
         parametros_form = request.POST
