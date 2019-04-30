@@ -1,5 +1,7 @@
 <form action="/crearfree/" method="POST">
     {% csrf_token %}
-    {{ formu }}
+    <table>
+        {{ form.as_table }}
+    </table>
     <input type="submit" value="Submit">
 </form>

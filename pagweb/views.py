@@ -64,5 +64,5 @@ def crear_freelancer(request):
     else:
         form = FreelancerForm()
 
-    return render(request, 'crearfreelancer.html', {"formu":form})
+    return render(request, 'crearfreelancer.html', {"form":form})
 
