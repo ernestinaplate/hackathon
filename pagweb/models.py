@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.template.defaultfilters import slugify
 
 '''
 class Post(models.Model):
@@ -44,11 +45,8 @@ class Freelancer(models.Model):
     exp_previa = models.TextField(null=True, blank=True)
     descripcion = models.TextField( null=True, blank=True)
     fotoportfolio = models.ImageField(upload_to='media/', null=True, blank=True)
+    #created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return str(self.nombre) + ' ' + str(self.apellido) 
-    
-
-
-
 
