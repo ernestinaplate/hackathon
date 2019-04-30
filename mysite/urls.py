@@ -28,6 +28,7 @@ urlpatterns = [
     path('listafree/', views.busq_categoria, name='listafree'),
     path('crearfree/', views.crear_freelancer),
     path('free/', views.desplegar_detalle, name='free'),
+    path('freelancer/', views.detalles, name='freelancer'),
 
 ] 
 urlpatterns +=  static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
