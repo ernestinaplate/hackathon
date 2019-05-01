@@ -71,9 +71,14 @@ def crear_freelancer(request):
         descripcion = parametros_form.get('descripcion')
         fotoportfolio = parametros_form.get('fotoportfolio')
         #created = parametros_form.get('created')
-
-        profesion_nueva = Profesion.objects.get(id=int(profesion))
-        print(profesion_nueva)
+        if profesion=="":
+            profesion_nueva=None
+        else:
+            profesion_nueva = Profesion.objects.get(id=int(profesion))
+        print("##########################################")
+        print(foto_de_perfil)
+        print(type(foto_de_perfil))
+        foto_de_perfil = 'media/'+foto_de_perfil
         freelancer_nuevo = Freelancer(nombre=nombre, apellido=apellido, 
                                     foto_de_perfil=foto_de_perfil, profesion=profesion_nueva,
                                     email=email, domicilio=domicilio, telefono=telefono,
