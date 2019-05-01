@@ -30,23 +30,22 @@
  	  
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index2.html"><span>Freepy.</span></a>
+	      <a class="navbar-brand" href="/"><span>Freepy.</span></a>
 	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 
 	      <div class="collapse navbar-collapse" id="">
 	        <ul class="navbar-nav nav ml-auto">
-	          <li class="nav-item"><a href="index2.html" class="nav-link" data-nav-section="home"><span>Inicio</span></a></li>
-	          <li class="nav-item cta"><a href="#" class="nav-link">Registrate</a></li>
+	          <li class="nav-item"><a href="/" class="nav-link" data-nav-section="home"><span>Inicio</span></a></li>
+	          <li class="nav-item cta"><a href="/crearfree/" class="nav-link">Registrate</a></li>
 
 	        </ul>
 	      </div>
 	    </div>
 	  </nav>
 
-
-    <section class="hero-wrap hero-wrap-2" style="background-image:url('/media/{{ profesion.0.imagen_grande }}') ;" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('/static/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-end justify-content-center">
@@ -80,8 +79,6 @@
               </div>
               <br>
             </div>
-            
-            <div><br></div>
             {% endfor %}
 
 
@@ -90,14 +87,10 @@
             </div>
             <div class="sidebar-box ftco-animate">
             	<h3 class="heading-sidebar">Categorias</h3>
-              <ul class="categories">
+              <ul class="categories">   
                   {% for x in lista_profesiones %}
-                  <li><a href="../testCat?c={{x.id}}">{{x.nombre_profesion}<span>(12)</span></a></li>
-                    {% endfor%}
-                <li><a href="#">Fotografo <span>(12)</span></a></li>
-                <li><a href="#">Plomero <span>(22)</span></a></li>
-                <li><a href="#">Electricista <span>(37)</span></a></li>
-                <li><a href="#">Programador <span>(42)</span></a></li>
+                  <li><a href="?c={{x.0}}">{{x.1}}<span>({{x.2}})</span></a></li>
+                  {% endfor%}
               </ul>
             </div>
 
