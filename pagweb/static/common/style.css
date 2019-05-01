@@ -1,0 +1,18 @@
+.div-padding {
+    position: relative;
+    padding: 1rem;
+    margin: 1rem -15px 0;
+    border: solid #ffffff;
+    border-width: .2rem 0 0;
+}
+@media (min-width: 576px){.div-padding {
+    padding: 1.5rem;
+    margin-right: 0;
+    margin-left: 0;
+    border-width: .2rem;
+}}
+
+.table_container_row .card-body table thead tr th{
+    text-align: center;
+    vertical-align: middle;
+}
