@@ -1,5 +1,5 @@
 from django import forms
-from .models import Profesion
+from .models import Profesion, Freelancer
 
 
 class FreelancerForm(forms.Form):
@@ -13,3 +13,10 @@ class FreelancerForm(forms.Form):
     exp_previa = forms.CharField(label='Experiencia previa', widget=forms.Textarea)
     descripcion = forms.CharField(label='Descripcion', widget=forms.Textarea)
     fotoportfolio = forms.FileField(label='Fotoportfolio')
+
+class FreeForm2(forms.ModelForm):
+
+    class Meta:
+        model = Freelancer
+        exclude = []
+        #fields = ['nombre','apellido','email','foto_de_perfil', 'profesion']
