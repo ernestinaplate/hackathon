@@ -45,13 +45,13 @@
 	    </div>
 	  </nav>
 
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('/media/{{ profesion.0.imagen_grande }}');" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('/media/{{ encabezado.2 }}');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-end justify-content-center">
           <div class="col-md-9 ftco-animate pb-5 text-center">
-            <h1 class="mb-3 bread">Profesion: {{ lista.0.profesion }}</h1>
-            <p class="breadcrumbs"><span class="mr-2"><a href="index2.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a href="blog.html">Blog <i class="ion-ios-arrow-forward"></i></a></span> <span>Blog Single <i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-3 bread">{{ encabezado.0 }}: "{{ encabezado.1 }}"</h1>
+            <p></p>
           </div>
         </div>
       </div>
@@ -74,7 +74,7 @@
                 <img src="/media/{{ free.foto_de_perfil }}" alt="Image placeholder" class="img-fluid mb-4" width="193" height="130">
               </div>
               <div class="desc">
-                <h3><a href="../free?f={{free.id}}">{{ free.nombre }} {{ free.apellido }}</a></h3>
+                <h3><a href="../freelancer?free={{free.id}}">{{ free.nombre }} {{ free.apellido }}</a></h3>
                 <p>{{ free.descripcion }}</p>
               </div>
               <br>
@@ -88,8 +88,12 @@
             <div class="sidebar-box ftco-animate">
             	<h3 class="heading-sidebar">Categorias</h3>
               <ul class="categories">   
+                <!-- lista_profesiones es una lista de lista. 
+                x.0 = profesion.id
+                x.1 = profesion.nombre_profesion
+                x.2 = profesion.cantidad_de_freelancers -->
                   {% for x in lista_profesiones %}
-                  <li><a href="?c={{x.0}}">{{x.1}}<span>({{x.2}})</span></a></li>
+                  <li><a href="?prof={{x.0}}">{{x.1}}<span>({{x.2}})</span></a></li>
                   {% endfor%}
               </ul>
             </div>
@@ -111,9 +115,9 @@
               <h2 class="ftco-heading-2">Freepy</h2>
               <p>Desarrolado en el bootcamp de Penguin</p>
               <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                <li class="ftco-animate"><a href="http://www.twiter.com/"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="http://www.facebook.com"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="http://www.facebook.com"><span class="icon-instagram"></span></a></li>
               </ul>
             </div>
           </div>
@@ -138,7 +142,7 @@
 	              <ul>
 	                <li><span class="icon icon-map-marker"></span><span class="text">Casa de Nomadas</span></li>
 	                
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">freepy@gmail.com</span></a></li>
+	                <li><a href="/"><span class="icon icon-envelope"></span><span class="text">freepy@gmail.com</span></a></li>
 	              </ul>
 	            </div>
             </div>

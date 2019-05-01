@@ -14,27 +14,44 @@ def index(request):
     contexto = { "lista_profesiones":listado_prof }
     return render(request, url_homepage, contexto)
 
-
-def busq_categoria(request):
-    lista_resultado = Freelancer.objects.filter(profesion=request.GET["c"])
-    profesion_resultado = Profesion.objects.filter(id=request.GET["c"])
-    
+# Devuelve lista de profesiones con: ID, Nombre, Cantidad de Freelancers
+def obtener_profesiones():
     lista_profesiones = Profesion.objects.all()
     stats = []
     for prof in lista_profesiones:
         freelancers = Freelancer.objects.filter(profesion=prof)
         stats.append([prof.id, prof.nombre_profesion,len(freelancers)])
-    print(stats)
+    return stats
+
+def busqueda(request):
+    lista_freelancers = []
+    encabezado = []
+
+    if "prof" in request.GET:
+        lista_freelancers = Freelancer.objects.filter(profesion=request.GET["prof"])
+        aux_profesion = Profesion.objects.filter(id=request.GET["prof"])
+        encabezado.append("Profesion")
+        encabezado.append(aux_profesion[0].nombre_profesion)
+        encabezado.append(aux_profesion[0].imagen_grande)
+    elif "busq" in request.GET:
+        lista_freelancers = Freelancer.objects.filter(descripcion__icontains=request.GET["busq"])
+        print("if busq")
+        encabezado.append("Busqueda")
+        encabezado.append(request.GET["busq"])
+        encabezado.append("/media/portadadebusquedas.png")
+    
+    stats = obtener_profesiones()
+    
     contexto = {
-         "lista": lista_resultado, 
-         "profesion":profesion_resultado,
+         "lista": lista_freelancers, 
+         "encabezado":encabezado,
          "lista_profesiones": stats,
          }
     return render(request, 'listafree.html', contexto)
 
 def desplegar_detalle(request):
     #llama a cada porfesional individualmente desplegando detalles
-    individuo = Freelancer.objects.filter(id=request.GET["f"])
+    individuo = Freelancer.objects.filter(id=request.GET["free"])
     contexto = {"individual":individuo}
     return render(request, 'test_detalle.html', contexto)
 
@@ -73,4 +90,6 @@ def crear_freelancer(request):
 
 def detalles(request):
     url_homepage = "detalles.html"
-    return render(request, url_homepage)
+    individuo = Freelancer.objects.filter(id=request.GET["f"])
+    contexto = {"individual":individuo}
+    return render(request, url_homepage, contexto)
