@@ -14,25 +14,37 @@ def index(request):
     contexto = { "lista_profesiones":listado_prof }
     return render(request, url_homepage, contexto)
 
-def busq_descripcion(request):
-    freelancers = Freelancer.objects.filter(descripcion__icontains=request.GET["busq"])
-    print("resultado:", freelancers)
-    return render(request, 'listafree.html', {})
-
-
-def busq_categoria(request):
-    lista_freelancers = Freelancer.objects.filter(profesion=request.GET["prof"])
-    profesion_resultado = Profesion.objects.filter(id=request.GET["prof"])
-    
+# Devuelve lista de profesiones con: ID, Nombre, Cantidad de Freelancers
+def obtener_profesiones():
     lista_profesiones = Profesion.objects.all()
     stats = []
     for prof in lista_profesiones:
         freelancers = Freelancer.objects.filter(profesion=prof)
         stats.append([prof.id, prof.nombre_profesion,len(freelancers)])
-    print(stats)
+    return stats
+
+def busqueda(request):
+    lista_freelancers = []
+    encabezado = []
+
+    if "prof" in request.GET:
+        lista_freelancers = Freelancer.objects.filter(profesion=request.GET["prof"])
+        aux_profesion = Profesion.objects.filter(id=request.GET["prof"])
+        encabezado.append("Profesion")
+        encabezado.append(aux_profesion[0].nombre_profesion)
+        encabezado.append(aux_profesion[0].imagen_grande)
+    elif "busq" in request.GET:
+        lista_freelancers = Freelancer.objects.filter(descripcion__icontains=request.GET["busq"])
+        print("if busq")
+        encabezado.append("Busqueda")
+        encabezado.append(request.GET["busq"])
+        encabezado.append("/media/portadadebusquedas.png")
+    
+    stats = obtener_profesiones()
+    
     contexto = {
          "lista": lista_freelancers, 
-         "profesion":profesion_resultado,
+         "encabezado":encabezado,
          "lista_profesiones": stats,
          }
     return render(request, 'listafree.html', contexto)
