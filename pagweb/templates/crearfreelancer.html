@@ -1,7 +1,90 @@
-<form action="/crearfree/" method="POST">
+<link href="/static/common/css/css.css" rel="stylesheet" type="text/css"/>
+
+    <link href="/static/common/css/datatables.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/common/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/common/css/responsive.dataTables.min.css" rel="stylesheet" type="text/css"/>
+
+
+    
+    <script src="/static/common/js/jquery.min.js"></script>
+    <link href="/static/css/main.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/common/style.css" rel="stylesheet" type="text/css"/>
+    <script src="/static/common/js/popper.min.js"></script>
+    <link href="/static/common/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/common/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css"/>
+    
+{% load static %}
+
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
+{% block js_block_top %}
+    <script src="/static/layui/layui.all.js"></script>
+{% endblock %}
+
+<form id="add_form" method="POST" action="" novalidate>
+    <div class="overview_form_block row marl justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+           <div class="card-title text-center">
+            <h3> FORMULARIO FREELANCER </h3>
+          </div>
+            <div class="row marl">
+              <div class="col-md-12">
+                <div class="filter_col col-md-12">
+  
+                  {% if form.non_field_errors %}
+                      <div class="alert alert-danger" role="alert">
+                          {% for error in form.non_field_errors %}
+                              {{ error }}
+                          {% endfor %}
+                      </div>
+                  {% endif %}
+  
+                  {% for field in form.visible_fields %}
+                      <div class="form-group">
+                          <div class="row">
+                              <div class="col-sm-2 col-form-label">
+                                  {{ field.label_tag }}
+                              </div>
+                              <div class="col-sm-10">
+                                  {% if form.is_bound %}
+                                      {% if field.errors %}
+                                          {{ field }}
+                                          {% for error in field.errors %}
+                                              <div class="invalid-feedback">
+                                                  {{ error }}
+                                              </div>
+                                          {% endfor %}
+                                      {% else %}
+                                          {{ field }}
+                                      {% endif %}
+                                  {% else %}
+                                      {{ field }}
+                                  {% endif %}
+  
+                                  {% if field.help_text %}
+                                      <small class="form-text text-muted">{{ field.help_text }}</small>
+                                  {% endif %}
+                              </div>
+                          </div>
+                      </div>
+                  {% endfor %}
+  
+  
+                  
+                </div>    
+              </div>
+            </div>
+          </div>
+  
+          <center>
+              <div class="buttonHolder">
+                  <input value="Enviar" title="Enviar" type="submit" id="btn_s"> 
+                </div>
+          </center>
+          </div>
+        </div>
+      </div>
+    </div>
     {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-    </table>
-    <input type="submit" value="Submit">
-</form>
+  </form>
