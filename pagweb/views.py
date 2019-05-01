@@ -90,6 +90,6 @@ def crear_freelancer(request):
 
 def detalles(request):
     url_homepage = "detalles.html"
-    individuo = Freelancer.objects.filter(id=request.GET["f"])
-    contexto = {"individual":individuo}
+    individuo = Freelancer.objects.filter(id=request.GET["free"])
+    contexto = {"individual": individuo}
     return render(request, url_homepage, contexto)
