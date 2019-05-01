@@ -57,7 +57,7 @@ def desplegar_detalle(request):
 
 def crear_freelancer(request):
     if request.method == 'POST':
-        parametros_form = request.POST
+        parametros_form = request.POST.get
         print(parametros_form)
         nombre = parametros_form.get('nombre')
         print(nombre)
