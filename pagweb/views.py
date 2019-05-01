@@ -14,10 +14,15 @@ def index(request):
     contexto = { "lista_profesiones":listado_prof }
     return render(request, url_homepage, contexto)
 
+def busq_descripcion(request):
+    freelancers = Freelancer.objects.filter(descripcion__icontains=request.GET["busq"])
+    print("resultado:", freelancers)
+    return render(request, 'listafree.html', {})
+
 
 def busq_categoria(request):
-    lista_resultado = Freelancer.objects.filter(profesion=request.GET["c"])
-    profesion_resultado = Profesion.objects.filter(id=request.GET["c"])
+    lista_freelancers = Freelancer.objects.filter(profesion=request.GET["prof"])
+    profesion_resultado = Profesion.objects.filter(id=request.GET["prof"])
     
     lista_profesiones = Profesion.objects.all()
     stats = []
@@ -26,7 +31,7 @@ def busq_categoria(request):
         stats.append([prof.id, prof.nombre_profesion,len(freelancers)])
     print(stats)
     contexto = {
-         "lista": lista_resultado, 
+         "lista": lista_freelancers, 
          "profesion":profesion_resultado,
          "lista_profesiones": stats,
          }
@@ -34,7 +39,7 @@ def busq_categoria(request):
 
 def desplegar_detalle(request):
     #llama a cada porfesional individualmente desplegando detalles
-    individuo = Freelancer.objects.filter(id=request.GET["f"])
+    individuo = Freelancer.objects.filter(id=request.GET["free"])
     contexto = {"individual":individuo}
     return render(request, 'test_detalle.html', contexto)
 

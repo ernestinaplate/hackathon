@@ -29,6 +29,7 @@ urlpatterns = [
     path('crearfree/', views.crear_freelancer, name = "Crear Perfil"),
     path('free/', views.desplegar_detalle, name='free'),
     path('freelancer/', views.detalles, name='freelancer'),
+    path('busqueda/', views.busq_descripcion, name='busqueda'),
 
 ] 
 urlpatterns +=  static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
