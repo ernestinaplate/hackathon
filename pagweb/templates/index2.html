@@ -26,7 +26,7 @@
 	  
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html"><span>Freepy.</span></a>
+	      <a class="navbar-brand" href="/"><span>Freepy.</span></a>
 	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -34,8 +34,8 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav nav ml-auto">
 	          <li class="nav-item"><a href="#" class="nav-link" data-nav-section="Inicio"><span>Inicio</span></a></li>
-						<li class="nav-item"><a href="#" class="nav-link" data-nav-section="Contacto"><span>Contacto</span></a></li>
-						<li class="nav-item cta"><a href="#" class="nav-link">Registrate aqui</a></li>
+						<li class="nav-item"><a href="#contacto" class="nav-link" data-nav-section="Contacto"><span>Contacto</span></a></li>
+            <li class="nav-item cta"><a href="/crearfree/" class="nav-link"><span>Registrate aqui</span></a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -71,21 +71,17 @@
 							{% for x in lista_profesiones %}
 								<div class="item">
 									<div class="project">
-										<div class="img">
-											<img src="media/{{ x.imagen_chica }}" class="img-fluid" alt="Colorlib Template">
-											<a href="../listafree?c={{x.id}}" class="icon image-popup d-flex justify-content-center align-items-center">
-												<span class="icon-expand"></span>
-												{{ x.imagen_chica }}
-											</a>
-										</div>
-										<div class="text px-4">
-											<h3><a href="../listafree?c={{x.id}}">{{ x.nombre_profesion }}</a></h3>
-
-										</div>
+                    <a href="../listafree?c={{x.id}}">
+                      <div class="img">
+                        <img src="media/{{ x.imagen_chica }}" class="img-fluid" alt="{{ x.nombre_profesion }}">
+                      </div>
+                      <div class="text px-4">
+                        <h3>{{ x.nombre_profesion }}</h3>
+                      </div>
+                    </a>
 									</div>
 								</div>
 							{% endfor %}
-							<!--a href="../testCat?c={{x.id}}">{{x.nombre_profesion}}</a><br>-->
             </div>
           </div>
     		</div>
@@ -94,7 +90,7 @@
 
 
     <section class="ftco-section contact-section">
-      <div class="container">
+      <div class="container" id="contacto">
         <div class="row d-flex contact-info">
           <div class="col-md-6 col-lg-3 d-flex">
           	<div class="align-self-stretch box p-4 text-center">
@@ -129,7 +125,7 @@
           			<span class="icon-globe"></span>
           		</div>
           		<h3 class="mb-4">SITIO WEB</h3>
-	            <p><a href="#">www.freelancepy.com</a></p>
+	            <p><a href="/">www.freelancepy.com</a></p>
 	          </div>
           </div>
         </div>
@@ -211,8 +207,6 @@
   <script src="/static/js/aos.js"></script>
   <script src="/static/js/jquery.animateNumber.min.js"></script>
   <script src="/static/js/scrollax.min.js"></script>
-  <script src="/static/https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="/static/js/google-map.js"></script>
   <script src="/static/js/main.js"></script>
     
   </body>

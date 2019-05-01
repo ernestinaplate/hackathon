@@ -26,7 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('listafree/', views.busq_categoria, name='listafree'),
-    path('crearfree/', views.crear_freelancer),
+    path('crearfree/', views.crear_freelancer, name = "Crear Perfil"),
     path('free/', views.desplegar_detalle, name='free'),
     path('freelancer/', views.detalles, name='freelancer'),
 

@@ -16,12 +16,20 @@ def index(request):
 
 
 def busq_categoria(request):
-    ####### Prueba GET y objects.filter()
     lista_resultado = Freelancer.objects.filter(profesion=request.GET["c"])
-    ####### Prueba objects.all()
-    #lista_freelancers = Freelancer.objects.all()
+    profesion_resultado = Profesion.objects.filter(id=request.GET["c"])
     
-    contexto = {"lista": lista_resultado}
+    lista_profesiones = Profesion.objects.all()
+    stats = []
+    for prof in lista_profesiones:
+        freelancers = Freelancer.objects.filter(profesion=prof)
+        stats.append([prof.id, prof.nombre_profesion,len(freelancers)])
+    print(stats)
+    contexto = {
+         "lista": lista_resultado, 
+         "profesion":profesion_resultado,
+         "lista_profesiones": stats,
+         }
     return render(request, 'listafree.html', contexto)
 
 def desplegar_detalle(request):
